@@ -9,6 +9,8 @@ class ruby::install {
         command  => "curl -sSL https://get.rvm.io | sudo bash -s stable",
         path     => ["/usr/bin", "/bin"],
         creates  => "/usr/local/rvm",
+        # Depends basic package
+        require  => Class["common::basic"]
     }
 
     exec { "ruby-install":
