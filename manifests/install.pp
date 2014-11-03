@@ -6,7 +6,7 @@ class ruby::install {
     $RUBY_VERSION  = "ruby-2.0.0-p247"
 
     exec { "rvm-install":
-        command  => "curl -sSL https://get.rvm.io | sudo bash -s stable",
+        command  => "gpg --keyserver hkp://keys.gnupg.net --recv-keys D39DC0E3 && curl -sSL https://get.rvm.io | sudo bash -s stable",
         path     => ["/usr/bin", "/bin"],
         creates  => "/usr/local/rvm",
         # Depends basic package
