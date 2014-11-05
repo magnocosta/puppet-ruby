@@ -28,17 +28,17 @@ class ruby::install {
 
     package { "jpegoptim":
         ensure => instaled,
-        require => Exec["imagemagick"]
+        require => Package["imagemagick"]
     }
 
     package { "optipng":
         ensure => instaled,
-        require => Exec["jpegoptim"]
+        require => Package["jpegoptim"]
     }
 
     package { "qt4":
         ensure => instaled,
-        require => Exec["roptipng"]
+        require => Packege["roptipng"]
     }
 
 }
