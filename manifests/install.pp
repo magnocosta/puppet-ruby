@@ -21,19 +21,4 @@ class ruby::install {
         require  =>  Exec["rvm-install"]
     }
 
-    package { "jpegoptim":
-        ensure => instaled,
-        require => Exec["ruby-install"]
-    }
-
-    package { "optipng":
-        ensure => instaled,
-        require => Package["jpegoptim"]
-    }
-
-    package { "qt4":
-        ensure => instaled,
-        require => Package["optipng"]
-    }
-
 }
