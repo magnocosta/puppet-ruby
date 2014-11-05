@@ -38,7 +38,7 @@ class ruby::install {
 
     package { "qt4":
         ensure => instaled,
-        require => Packege["roptipng"]
+        require => Packege["optipng"]
     }
 
 }
