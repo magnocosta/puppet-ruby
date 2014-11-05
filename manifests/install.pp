@@ -21,14 +21,9 @@ class ruby::install {
         require  =>  Exec["rvm-install"]
     }
 
-    package { "imagemagick":
-        ensure => instaled,
-        require => Exec["ruby-install"]
-    }
-
     package { "jpegoptim":
         ensure => instaled,
-        require => Package["imagemagick"]
+        require => Exec["ruby-install"]
     }
 
     package { "optipng":
