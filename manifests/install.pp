@@ -8,7 +8,7 @@ class ruby::install {
     exec { "rvm-install":
         command  => "gpg --keyserver hkp://keys.gnupg.net --recv-keys D39DC0E3 && curl -sSL https://get.rvm.io | sudo bash -s stable",
         path     => ["/usr/bin", "/bin"],
-        creates  => "/usr/local/rvm",
+        unless   => "rvm --version | grep -E 'rvm' -c",
         # Depends basic package
         require  => Class["common::basic"]
     }
