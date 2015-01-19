@@ -8,7 +8,8 @@ class ruby::install {
     exec { "rvm-install":
         command  => "curl -sSL https://rvm.io/mpapis.asc | sudo gpg --import - && curl -sSL https://get.rvm.io | sudo bash -s stable",
         path     => ["/usr/bin", "/bin"],
-        unless   => "rvm --version | grep -E 'rvm' -c",
+        creates  => "/usr/local/rvm",
+        #unless   => "rvm --version | grep -E 'rvm' -c",
         # Depends basic package
         require  => Class["common::basic"]
     }
